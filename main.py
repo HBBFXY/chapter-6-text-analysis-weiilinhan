@@ -10,7 +10,14 @@ def analyze_text(text):
     返回:
     list - 按字符频率降序排列的字符列表
     """
-    # 在此处增加代码
+    freq = {}
+    lower_text = text.lower()  
+    for char in lower_text:
+        if char.isalpha():
+            freq[char] = freq.get(char, 0) + 1
+    sorted_items = sorted(freq.items(), key=lambda x: (-x[1], x[0]))
+    return [char for char, count in sorted_items]
+
     
 
 # 主程序，已完整
